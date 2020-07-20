@@ -1,0 +1,7 @@
+jkl <- read.csv("C:/Users/SHYAMSUNDER GOWD/Desktop/exda/exdata_data_household_power_consumption/household_power_consumption.txt", sep=";", na.strings="?", stringsAsFactors=FALSE)
+jkl$Date<-paste(jkl$Date,jkl$Time)
+jkl$Date<-strptime(jkl$Date,format = "%d/%m/%Y %H:%M:%S")
+ac<-subset(jkl,Date>="2007-01-01"&Date<"2007-01-0")
+png(file = "plot1.png",width = 480,height =480)
+hist(ac$Global_active_power,col = "red",main = "Global Active Power",xlab = "Global Active Power (in kilowatts)")
+dev.off()
